@@ -1,13 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class Book extends Component {
-    
-    onChangeShelf = (e) => {
-        console.log('new shelf', e.target.value);
-    }
-    render () {
-        const {imageLinks, title, authors, shelf} = this.props.bookDetails;
-
+const Book = (props) => {
+        const {imageLinks, title, authors, shelf} = props.bookDetails;
+        const imageUrl = imageLinks && imageLinks.smallThumbnail ? imageLinks.smallThumbnail : '';
         return (
             <li>
                 <div className="book">
@@ -15,12 +10,12 @@ class Book extends Component {
                         <div className="book-cover" style={{ 
                             width: 128, 
                             height: 193, 
-                            backgroundImage: "url(" + imageLinks.smallThumbnail + ")"
+                            backgroundImage: "url(" + imageUrl + ")"
                         }}>
                         </div>
                         <div className="book-shelf-changer">
-                            <select value={shelf} onChange={(e) => {this.props.onChangeShelf(e, this.props.bookDetails, e.target.value)}}>
-                                <option value="none" disabled>Move to...</option>
+                            <select value={shelf} onChange={(e) => {props.onChangeShelf(e, props.bookDetails, e.target.value)}}>
+                                <option value="disabled" disabled>Move to...</option>
                                 <option value="currentlyReading">Currently Reading</option>
                                 <option value="wantToRead">Want to Read</option>
                                 <option value="read">Read</option>
@@ -33,12 +28,10 @@ class Book extends Component {
                         authors.map(author => {
                             return <div className="book-authors" key={author}>{author}</div>
                         })
-                    }
-                    
+                    }  
                 </div>
             </li>
         )
-    }
 }
 
 export default Book;

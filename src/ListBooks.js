@@ -14,8 +14,9 @@ const ListBooks = (props) => {
                     })}
                 </ol>
             ) : (
-                <div> There are currently no books on this shelf.</div>
-            )}
+                    <div>{props.noMessage ? '' : 'There are currently no books on this shelf'}</div>
+                )
+            }
         </div>
     )
 }
