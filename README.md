@@ -3,9 +3,9 @@ This app allows user to select and categorize books in three different shelves -
 
 ## How to Run:
 
-* Download or Clone the Repository.
+* Download or Run git clone https://github.com/skataria/REACTND-PROJECT-MYREADS.git to clone this repository.
 * Install all project dependencies with `npm install`.
-* Start the development server with `npm start`
+* Start the development server with `npm start`.
 * App can be seen at: localhost:3000.
 
 ## What You're Getting
